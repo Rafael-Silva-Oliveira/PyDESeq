@@ -87,3 +87,23 @@ target/
 
 # Mypy cache
 .mypy_cache/
+dotplot.png
+filtered_heatmap.png
+GEAS_2023_10_12-10_50_42_AM.xlsx
+GEAS_2023_10_12-11_20_41_AM.xlsx
+GEAS_2023_10_12-12_04_27_PM.xlsx
+GEAS_2023_10_12-12_08_26_PM.xlsx
+GEAS_2023_10_12-12_14_53_PM.xlsx
+gsea.png
+Ranked_genes_by_stat_2023_10_12-10_49_44_AM.xlsx
+Ranked_genes_by_stat_2023_10_12-10_50_42_AM.xlsx
+Ranked_genes_by_stat_2023_10_12-11_20_41_AM.xlsx
+Ranked_genes_by_stat_2023_10_12-12_04_27_PM.xlsx
+Ranked_genes_by_stat_2023_10_12-12_08_26_PM.xlsx
+Ranked_genes_by_stat_2023_10_12-12_14_53_PM.xlsx
+Significant_genes_2023_10_12-10_49_44_AM.xlsx
+Significant_genes_2023_10_12-10_50_42_AM.xlsx
+Significant_genes_2023_10_12-11_20_41_AM.xlsx
+Significant_genes_2023_10_12-12_04_27_PM.xlsx
+Significant_genes_2023_10_12-12_08_26_PM.xlsx
+Significant_genes_2023_10_12-12_14_53_PM.xlsx

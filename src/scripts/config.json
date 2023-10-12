@@ -1,0 +1,55 @@
+{
+  "differential_expression": {
+    "Condition": {
+      "control": "Non-Smoker",
+      "experiment": "Smoker"
+    },
+    "species": "human",
+    "thresholds_for_significant_genes": {
+      "padj": 0.05,
+      "log2FoldChange": 0.5,
+      "baseMean": 10
+    },
+    "count_matrix": {
+      "path": "C:/Users/rafaelo/OneDrive - NTNU/Documents/Projects/PyDESeq/data/raw/count-table.tsv",
+      "gene_id_column_name": "Geneid"
+    }
+  },
+  "gene_set_enrichment_analysis": {
+    "perform_GSEA": true,
+    "gene_sets": {
+      "GO_Biological_Process_2021": false,
+      "DisGeNET": true
+    },
+    "permutations": 1000,
+    "filter_by_organ": "lung"
+  },
+  "plotting": {
+    "plot_volcano": {
+      "plot": false,
+      "save": ""
+    },
+    "plot_pca": {
+      "plot": false,
+      "save": ""
+    },
+    "plot_heatmap": {
+      "plot": true,
+      "filter": {
+        "use_filter": true,
+        "show_top_n": 20,
+        "order_significant_genes_by": "stat",
+        "ascending": false
+      },
+      "save": ""
+    },
+    "plot_dotplot": {
+      "plot": true,
+      "save": ""
+    },
+    "plot_gsea": {
+      "plot": true,
+      "save": ""
+    }
+  }
+}
