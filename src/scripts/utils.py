@@ -17,6 +17,3 @@ def txt_2_dataframe(txt_filePath):
 
     df = pd.read_csv(f'{txt_filePath}', delimiter="\t")
     return df
-
-# data_renamed["Sum"] = data_renamed.sum(axis=1)
-# data_renamed = data_renamed.sort_values(by=["Sum"], ascending=False)

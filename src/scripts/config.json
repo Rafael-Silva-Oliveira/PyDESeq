@@ -11,7 +11,7 @@
       "baseMean": 10
     },
     "count_matrix": {
-      "path": "C:/Users/rafaelo/OneDrive - NTNU/Documents/Projects/PyDESeq/data/raw/count-table.tsv",
+      "path": "./data/raw/count-table.tsv",
       "gene_id_column_name": "Geneid"
     }
   },
@@ -34,7 +34,7 @@
       "save": ""
     },
     "plot_heatmap": {
-      "plot": true,
+      "plot": false,
       "filter": {
         "use_filter": true,
         "show_top_n": 20,
@@ -44,7 +44,7 @@
       "save": ""
     },
     "plot_dotplot": {
-      "plot": true,
+      "plot": false,
       "save": ""
     },
     "plot_gsea": {

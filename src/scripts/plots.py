@@ -46,16 +46,16 @@ class Plots:
 
     def gseaplot_fn(self, go_ontologies):
         # Make a GSEA plot based on a given term
-        # gsea_plt = gseaplot(
-        #     term=go_ontologies_df["Term"].iloc[0], **go_ontologies.results[go_ontologies_df["Term"].iloc[0]])
-
         terms = go_ontologies.res2d.Term
         plt.figure(figsize=(20, 20))  # Set the desired figure size
         axs = go_ontologies.plot(terms=terms[1:10],
                                  show_ranking=True,
                                  figsize=(20, 20)
                                  )
+        axs.figure.set_size_inches(12, 16)  # Set a bigger figure size
         axs.savefig("gsea.png")
+
+        tt = 2
 
     def heatmap_fn(self, dds, significant_genes, ensg_to_gene_mapper):
 

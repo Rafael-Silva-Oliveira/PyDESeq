@@ -18,16 +18,19 @@ from loguru import logger
 date = datetime.now().strftime("%Y_%m_%d-%I_%M_%S_%p")
 
 
-def run_pipeline(CONFIG_PATH: str, diff_exp_matrix_path: str):
+def run_pipeline(CONFIG_PATH: str):
     """_summary_
 
     Args:
         CONFIG_PATH (str): _description_
-        diff_exp_matrix_path (str): _description_
     """
 
-    config = json.load(open(CONFIG_PATH, "r"))
     logger.info("Loading configuration parameters.")
+
+    # Open config file
+    config = json.load(open(CONFIG_PATH, "r"))
+
+    # DEG Parameters
     control = config["differential_expression"]["Condition"]["control"]
     experiment = config["differential_expression"]["Condition"]["experiment"]
     species = config["differential_expression"]["species"]
@@ -62,12 +65,15 @@ def run_pipeline(CONFIG_PATH: str, diff_exp_matrix_path: str):
     deseq = DESeq(gene_sets, permutations_num,
                   config, ensg_to_gene_mapper)
 
+    # Pre-process count matrix
     count_matrix_processed, metadata = deseq.pre_processing(
         count_matrix=count_matrix, gene_id_col_name=count_matrix_gene_column)
 
+    # Run DEG method
     dds, stat_res, dds_stats_df, significant_genes, ranked_by_stat = deseq.DEG(
         count_matrix_processed=count_matrix_processed, metadata=metadata, experiment=experiment, control=control, padj=padj, log2FoldChange=log2FoldChange, baseMean=baseMean)
 
+    # Run GSEA method if true
     if perform_GSEA:
         go_ontologies, go_ontologies_df = deseq.GSEA(
             ranked_by_stat, filter_by_organ)
@@ -82,9 +88,8 @@ def run_pipeline(CONFIG_PATH: str, diff_exp_matrix_path: str):
         vis.run_plots(dds, dds_stats_df,
                       significant_genes, ensg_to_gene_mapper)
 
-    logger.info("Pipeline completed.")
+    logger.info("DESeq pipeline complete.")
 
 
 if __name__ == "__main__":
-    run_pipeline(CONFIG_PATH=r"C:\Users\rafaelo\OneDrive - NTNU\Documents\Projects\PyDESeq\src\scripts\config.json",
-                 diff_exp_matrix_path=r"C:\Users\rafaelo\OneDrive - NTNU\Documents\Projects\BIOMOL8008\Voom_diffexp_gnms.txt")
+    run_pipeline(CONFIG_PATH=r".\src\scripts\config.json")
