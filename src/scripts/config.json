@@ -48,7 +48,7 @@
       "save": ""
     },
     "plot_gsea": {
-      "plot": true,
+      "plot": false,
       "save": ""
     }
   }

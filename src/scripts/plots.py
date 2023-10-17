@@ -28,7 +28,7 @@ class Plots:
 
     def volcano_fn(self, dds_stats_df: pd.DataFrame):
         from sanbomics.plots import volcano
-        volcano(dds_stats_df, symbol="Symbols")
+        volcano(dds_stats_df, symbol="Symbols", to_label=20, save=True)
 
     def pca_fn(self, dds):
         # pca_data = pca_fn(count_matrix_processed,
@@ -52,7 +52,7 @@ class Plots:
                                  show_ranking=True,
                                  figsize=(20, 20)
                                  )
-        axs.figure.set_size_inches(12, 16)  # Set a bigger figure size
+        axs.figure.set_size_inches(25, 25)  # Set a bigger figure size
         axs.savefig("gsea.png")
 
         tt = 2

@@ -72,7 +72,8 @@ class DESeq:
                            metadata=metadata, design_factors="Condition")
         dds.deseq2()
 
-        logger.info("Generating differential expression statistics.")
+        logger.info(
+            f"Generating differential expression statistics with Experimental : {experiment} vs Control : {control}.")
         stat_res = DeseqStats(dds, n_cpus=4, contrast=(
             "Condition", experiment, control))
         stat_res.summary()
@@ -133,7 +134,7 @@ class DESeq:
         # If we want to filter for those that contain lung
         if filter_by_organ != "":
             logger.warning(
-                f"You're currently filtering for the {filter_by_organ} organ. The GSEA results may be biased as they may not be significant regarding FDR p-values.")
+                f"You're currently filtering for the {filter_by_organ} organ. ")
             go_ontologies_dict = {
                 k: v for k, v in go_ontologies.results.items() if filter_by_organ in k}
             updated_list_of_terms = [el for el in go_ontologies_dict.keys()]
@@ -147,11 +148,11 @@ class DESeq:
 
         for term in list(go_ontologies.results):
             go_ontologies_list.append([term, go_ontologies.results[term]["fdr"],
-                                       go_ontologies.results[term]["es"], go_ontologies.results[term]["nes"]])
+                                       go_ontologies.results[term]["es"], go_ontologies.results[term]["nes"], go_ontologies.results[term]["tag %"], go_ontologies.results[term]["gene %"], go_ontologies.results[term]["lead_genes"], go_ontologies.results[term]["matched_genes"]])
 
         # Create a version of the data in the list as a dataframe
-        go_ontologies_df = pd.DataFrame(go_ontologies_list, columns=["Term", "fdr", "es", "nes"]).sort_values(
-            "fdr").reset_index(drop=True)  # fdr = p-value, es = enrichment score, nes = normalized enrichment score
+        go_ontologies_df = pd.DataFrame(go_ontologies_list, columns=["Term", "ffr", "es", "nes", "tag%", "gene%", "lead_genes", "matched_genes"]).sort_values(
+            "ffr").reset_index(drop=True)  # ffr = p-value, es = enrichment score, nes = normalized enrichment score
         # We can now sort via nes to get the most negative or positively enriched
         go_ontologies_df.sort_values("nes")
         logger.info(

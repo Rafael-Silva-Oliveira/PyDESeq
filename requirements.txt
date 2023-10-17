@@ -16,6 +16,7 @@ seaborn
 scikit-learn
 sanbomics
 scanpy
+gseapy
 
 # backwards compatibility
 pathlib2
