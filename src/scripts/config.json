@@ -26,15 +26,15 @@
   },
   "plotting": {
     "plot_volcano": {
-      "plot": false,
+      "plot": true,
       "save": ""
     },
     "plot_pca": {
-      "plot": false,
+      "plot": true,
       "save": ""
     },
     "plot_heatmap": {
-      "plot": false,
+      "plot": true,
       "filter": {
         "use_filter": true,
         "show_top_n": 20,
@@ -44,11 +44,11 @@
       "save": ""
     },
     "plot_dotplot": {
-      "plot": false,
+      "plot": true,
       "save": ""
     },
     "plot_gsea": {
-      "plot": false,
+      "plot": true,
       "save": ""
     }
   }
