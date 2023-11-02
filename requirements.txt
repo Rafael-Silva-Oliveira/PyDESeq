@@ -16,6 +16,8 @@ seaborn
 scikit-learn
 sanbomics
 scanpy
+plotnine
+lets_plot
 gseapy
 
 # backwards compatibility

@@ -123,6 +123,7 @@ class DESeq:
         # Add GO ontologies
         logger.info(
             "Performing Gene Set Enrichment Analysis (GSEA)")
+
         gene_sets_list = [key for key,
                           value in self.gene_sets.items() if value]
 

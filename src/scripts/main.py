@@ -1,3 +1,4 @@
+
 from deseq import DESeq
 from plots import Plots
 import json
@@ -75,6 +76,7 @@ def run_pipeline(CONFIG_PATH: str):
 
     # Run GSEA method if true
     if perform_GSEA:
+
         go_ontologies, go_ontologies_df = deseq.GSEA(
             ranked_by_stat, filter_by_organ)
 
